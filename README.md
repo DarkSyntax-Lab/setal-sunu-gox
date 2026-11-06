@@ -1,56 +1,39 @@
-# sv
+# Setal Sunu Gox
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Plateforme numérique citoyenne pour des quartiers propres et la prévention des inondations à Dakar.
+Slogan : _Ensemble pour un quartier propre._
 
-## Creating a project
+Projet en cours de développement. Suivi des étapes : [docs/JOURNAL.md](docs/JOURNAL.md).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Pile technique
 
-```sh
-# create a new project
-npx sv create my-app
+SvelteKit, TypeScript, Tailwind CSS, GSAP, Supabase (PostgreSQL, Auth, Storage, Realtime, RLS), Leaflet, OpenStreetMap, PostGIS, PWA, Lucide.
+
+## Prérequis
+
+- Node.js 22.17 ou plus
+- npm et Git
+
+## Installation
+
 ```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@1.3.0 create --template minimal --types ts --add tailwindcss="plugins:none" eslint prettier --no-download-check --install npm setal-sunu-gox
-```
-
-## Adding features
-
-Add features to your project with `sv add`:
-
-```sh
-npx sv add
-```
-
-For example, to add Tailwind CSS:
-
-```sh
-npx sv add tailwindcss
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+npm install
+cp .env.example .env   # puis remplir les valeurs
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Commandes
 
-To create a production version of your app:
+| Commande        | Rôle                                        |
+| --------------- | ------------------------------------------- |
+| `npm run dev`   | Serveur de développement (`localhost:5173`) |
+| `npm run check` | Vérification des types                      |
+| `npm run lint`  | Vérification du format et du code           |
+| `npm run build` | Compilation de production                   |
 
-```sh
-npm run build
-```
+## Conventions
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Les imports internes utilisent l'alias `#lib`, avec l'extension : `#lib/utils/x.js`.
+- Tous les textes sont dans `src/lib/i18n` (français d'abord, wolof ensuite).
+- Aucune donnée fictive en production : les écrans sans données affichent un état vide.
+- Les quatre couleurs officielles sont définies dans `src/routes/layout.css`.
