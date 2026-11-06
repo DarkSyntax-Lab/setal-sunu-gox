@@ -36,6 +36,9 @@ export default defineConfig(
 	{
 		// Override or add rule settings here, such as:
 		// 'svelte/button-has-type': 'error'
-		rules: {}
+		rules: {
+			// L'application est servie à la racine du domaine (pas de paths.base) : resolve() est inutile.
+			'svelte/no-navigation-without-resolve': 'off'
+		}
 	}
 );

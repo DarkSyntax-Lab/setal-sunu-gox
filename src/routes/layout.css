@@ -1,1 +1,31 @@
 @import 'tailwindcss';
+
+/* Les quatre couleurs officielles : ne pas en ajouter d'autres. */
+@theme {
+	--color-charbon: #1e1e1e;
+	--color-lavande: #b3a0cd;
+	--color-citron: #d1ef53;
+	--color-blanc-casse: #e9e3dc;
+	--font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+	html {
+		background-color: var(--color-charbon);
+		color: var(--color-blanc-casse);
+		scroll-behavior: smooth;
+	}
+	body {
+		min-height: 100dvh;
+	}
+	:focus-visible {
+		outline: 2px solid var(--color-citron);
+		outline-offset: 2px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
