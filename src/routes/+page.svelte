@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { t } from '#lib/i18n/index.js';
-	import Hero from '#lib/components/home/Hero.svelte';
-	import StatsBar from '#lib/components/home/StatsBar.svelte';
+	import MobileHome from '#lib/components/home/MobileHome.svelte';
+	import DesktopHome from '#lib/components/home/DesktopHome.svelte';
+	import HowItWorks from '#lib/components/how/HowItWorks.svelte';
 </script>
 
 <svelte:head>
@@ -9,5 +10,6 @@
 	<meta name="description" content={t.hero.text} />
 </svelte:head>
 
-<Hero />
-<StatsBar />
+<div class="desk:hidden"><MobileHome /></div>
+<div class="hidden desk:block"><DesktopHome /></div>
+<HowItWorks />

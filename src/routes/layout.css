@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant desk (@media (min-width: 1100px));
+
 /* Les quatre couleurs officielles : ne pas en ajouter d'autres. */
 @theme {
 	--color-charbon: #1e1e1e;
@@ -7,6 +9,41 @@
 	--color-citron: #d1ef53;
 	--color-blanc-casse: #e9e3dc;
 	--font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--font-script: 'Bradley Hand', 'Segoe Script', 'Brush Script MT', cursive;
+	/* 1 unité d'espacement = 1 pixel de la maquette : w-235 = 235 px de maquette, à l'échelle de l'écran. */
+	--spacing: var(--u);
+}
+
+/* Mobile : la maquette fait 852 px de large. Bureau : 1672 px. */
+:root {
+	--u: clamp(0.3px, calc(100vw / 852), 1.2px);
+}
+@media (min-width: 1100px) {
+	:root {
+		--u: clamp(0.66px, calc(100vw / 1672), 1.15px);
+	}
+}
+
+/* fs-14 = texte de 14 px de maquette (jamais sous 10 px réels, pour rester lisible). */
+@utility fs-* {
+	font-size: max(10px, calc(--value(integer) * var(--u)));
+}
+/* fm-14 = comme fs-14 mais sans plancher de 10 px : pour les petits textes d'illustration (maquettes d'écrans). */
+@utility fm-* {
+	font-size: calc(--value(integer) * var(--u));
+}
+@utility r-* {
+	border-radius: calc(--value(integer) * var(--u));
+}
+@utility glass {
+	background-image: linear-gradient(
+		145deg,
+		color-mix(in srgb, var(--color-blanc-casse) 9%, transparent),
+		color-mix(in srgb, var(--color-blanc-casse) 2%, transparent)
+	);
+	background-color: color-mix(in srgb, var(--color-charbon) 78%, transparent);
+	border: 1px solid color-mix(in srgb, var(--color-lavande) 38%, transparent);
+	backdrop-filter: blur(12px);
 }
 
 @layer base {
@@ -17,13 +54,13 @@
 	}
 	body {
 		min-height: 100dvh;
+		overflow-x: hidden;
 	}
 	:focus-visible {
 		outline: 2px solid var(--color-citron);
 		outline-offset: 2px;
 	}
 }
-
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;

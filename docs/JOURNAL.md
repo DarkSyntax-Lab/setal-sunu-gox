@@ -2,17 +2,18 @@
 
 ## État d'avancement
 
-| Étape                              | Statut                                   |
-| ---------------------------------- | ---------------------------------------- |
-| 0. Préparation                     | Terminée                                 |
-| 1a. Palette, structure, accueil    | Livrée, en attente de test sur téléphone |
-| 1b. Autres sections de l'accueil   | À faire                                  |
-| 2. Base de données et comptes      | À faire                                  |
-| 3. Carte, signalement, validation  | À faire                                  |
-| 4. Communautés, calendrier, notifs | À faire                                  |
-| 5. Gamification et galerie         | À faire                                  |
-| 6. Administration                  | À faire                                  |
-| 7. Finalisation et déploiement     | À faire                                  |
+| Étape                                          | Statut                       |
+| ---------------------------------------------- | ---------------------------- |
+| 0. Préparation                                 | Terminée                     |
+| 1a. Palette, structure, accueil                | Livrée et poussée sur GitHub |
+| 1b. Sections de l'accueil, emplacements photos | Livrée, en attente de test   |
+| 1c. Responsive complet et photos réelles       | À faire                      |
+| 2. Base de données et comptes                  | À faire                      |
+| 3. Carte, signalement, validation              | À faire                      |
+| 4. Communautés, calendrier, notifs             | À faire                      |
+| 5. Gamification et galerie                     | À faire                      |
+| 6. Administration                              | À faire                      |
+| 7. Finalisation et déploiement                 | À faire                      |
 
 ## Décisions techniques
 
@@ -35,3 +36,9 @@
 - Photographies réelles des actions, avec l'accord des personnes visibles.
 - Partenaires réels pour les récompenses.
 - Mentions légales, à faire relire par un juriste avant le lancement public.
+
+## Mode démo
+
+- `PUBLIC_DEMO_MODE=true` dans `.env` affiche des données d'exemple (`src/lib/demo`) pour les présentations.
+- Un bandeau « MODE DÉMO » reste visible en permanence.
+- Avant la mise en ligne publique : `PUBLIC_DEMO_MODE=false`, puis supprimer `src/lib/demo` et `static/demo`.
